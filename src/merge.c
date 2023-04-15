@@ -1,14 +1,14 @@
-#include <stdio.h>
+#include "Algorithms.h"
+
+
+
 // Ahmed Hussein sadeq.       Ashbenlolo
+
+
 void algorithmMergeSort (unsigned int arr[], int n);
 
 void merge (unsigned int b[], unsigned int c[], unsigned int a[], int n );
 
-int main()
-{
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    return 0;
-}
 
 /* if arr larger than 1,
 */
