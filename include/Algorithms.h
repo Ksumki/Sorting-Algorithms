@@ -6,10 +6,10 @@
 #define ALGORITHMS_H
 
 // Insertion Sort
-void algorithmInsertionSort(unsigned int arr[], int n);
+void InsertionSort(unsigned int arr[], int n);
 
 // MergeSort 
-void algorithmMergeSort (unsigned int arr[], int n);
+void MergeSort (unsigned int arr[], int n);
 
 // Helper function Merge that is used in MergeSort
 void merge (unsigned int b[], unsigned int c[], unsigned int a[], int n );

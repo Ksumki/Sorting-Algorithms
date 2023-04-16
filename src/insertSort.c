@@ -1,8 +1,8 @@
-#include "Algorithms.h"
+#include "algorithms.h"
 
 // GHADI KAHLIL -- Deividas Malaska -- Ahmed Hussein Sadeq
 
-void algorithmInsertionSort(unsigned int arr[], int n)
+void InsertionSort(unsigned int arr[], int n)
 {
     for (int i = 0; i < n - 1; i++)
     {

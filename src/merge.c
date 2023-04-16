@@ -1,18 +1,13 @@
-#include "Algorithms.h"
+#include "algorithms.h"
 
 
 
 // Ahmed Hussein sadeq.       Ashbenlolo
 
 
-void algorithmMergeSort (unsigned int arr[], int n);
-
-void merge (unsigned int b[], unsigned int c[], unsigned int a[], int n );
-
-
 /* if arr larger than 1,
 */
-void algorithmMergeSort (unsigned int arr[], int n){
+void MergeSort (unsigned int arr[], int n){
     if(n > 1){
         unsigned int left[n/2] , right[n/2];
         for (int i = 0 ; i < n/2 - 1 ; i++){
@@ -24,8 +19,8 @@ void algorithmMergeSort (unsigned int arr[], int n){
             right[i - n] = arr[i];
 
         }
-        algorithmMergeSort(left, n/2);
-        algorithmMergeSort(right,n/2);
+        MergeSort(left, n/2);
+        MergeSort(right,n/2);
 
         merge (left, right , arr, n);
 
