@@ -1,5 +1,4 @@
 #include "sorting.h"
-#include "algorithms.h"
 
 
 void SelectionSort(unsigned int *arr, int n){
@@ -22,9 +21,9 @@ void SelectionSort(unsigned int *arr, int n){
 
         if(min != i){
 
-        temp = arr[i];
+        temp = (int)arr[i];
         arr[i] = arr[min];
-        arr[min] = temp;
+        arr[min] = (unsigned int)temp;
 
         }
     }
