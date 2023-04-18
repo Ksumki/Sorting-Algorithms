@@ -7,17 +7,6 @@
 Ahmed Hussein Sadeq                         
 
 */
-int main()
-{
-    int x = 53;
-    int* lst = mix4_array(x);
-
-    for (int i = 0 ; i < x ; i++) {
-        printf(" %d " , lst[i]);
-    }
-}
-
-
 int* ordered_array (int n) {
     int* lst = malloc ((size_t)n * sizeof(int));
     
