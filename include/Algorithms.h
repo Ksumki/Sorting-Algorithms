@@ -5,6 +5,9 @@
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
 
+// Selection Sort
+void SelectionSort(unsigned int *arr, int n);
+
 // Insertion Sort
 void InsertionSort(unsigned int arr[], int n);
 
