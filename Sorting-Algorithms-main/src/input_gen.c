@@ -7,8 +7,6 @@
 Ahmed Hussein Sadeq                         
 
 */
-
-
 int* ordered_array (int n) {
     int* lst = malloc ((size_t)n * sizeof(int));
     
