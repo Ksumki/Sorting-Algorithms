@@ -1,7 +1,8 @@
 #include "sorting.h"
+#include <stdlib.h>
 
 
-void SelectionSort(unsigned int *arr, int n){
+void SelectionSortOp(unsigned int *arr, int n, int *op){
 
     int i, j;
     int min,temp;
@@ -11,9 +12,11 @@ void SelectionSort(unsigned int *arr, int n){
         min = i;
 
         for(j=i+1; j<n; j++){
+            // increment the op coumter for every comparison
+            (*op)++;
 
             if(arr[j]<arr[min]){
-
+    
                 min = j;
 
             }
@@ -54,21 +57,25 @@ void MergeSortOp(unsigned int arr[], int n, int* op)
 {
     if(n > 1)
     {
-        unsigned int left[n/2] , right[n/2];
-        for (int i = 0 ; i < n/2 - 1 ; i++)
+        unsigned int* left = malloc((unsigned int)n/2 * sizeof(unsigned int)); 
+        unsigned int* right = malloc((unsigned int)n/2 * sizeof(unsigned int));
+        /* unsigned int left[n/2] , right[n/2]; */
+        for (int i = 0 ; i < n/2 ; i++)
         {
             left[i] = arr[i];
         }
 
         for (int i = n/2 ; i < n ; i ++)
         {
-            right[i - n] = arr[i];
+            right[i - n/2] = arr[i];
 
         }
         MergeSortOp(left, n/2, op);
         MergeSortOp(right,n/2, op);
 
         mergeOp (left, right , arr, n, op);
+        free(left);
+        free(right);
 
     }
 }
@@ -78,7 +85,7 @@ void mergeOp (unsigned int b[], unsigned int c[], unsigned int a[], int n,int *o
 {
 
     int i = 0 , j = 0 , k = 0, pq = n/2;
-    while (i < pq  || i < pq ) 
+    while (i < pq  && j < pq ) 
     {
         (*op)++;  // Increment the operation counter for each comparison
         if (b[i] <= c[j])

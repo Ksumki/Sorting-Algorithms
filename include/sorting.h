@@ -5,6 +5,8 @@
 #ifndef SORTING_H
 #define SORTING_H
 
+void SelectionSortOp(unsigned int *arr, int n, int *op);
+
 void InsertSortOp(unsigned int arr[], int n, int *op);
 
 void MergeSortOp(unsigned int arr[], int n, int *op);

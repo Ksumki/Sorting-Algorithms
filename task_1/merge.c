@@ -1,4 +1,4 @@
-
+#include <stdlib.h>
 
 
 
@@ -9,7 +9,8 @@
 */
 void MergeSort (unsigned int arr[], int n){
     if(n > 1){
-        unsigned int left[n/2] , right[n/2];
+        unsigned int* left = malloc(n/2 * sizeof(unsigned int)); 
+        unsigned int* right = malloc(n/2 * sizeof(unsigned int));
         for (int i = 0 ; i < n/2 - 1 ; i++){
             left[i] = arr[i];
         }
@@ -23,6 +24,8 @@ void MergeSort (unsigned int arr[], int n){
         MergeSort(right,n/2);
 
         merge (left, right , arr, n);
+        free(left);
+        free(right);
 
     }
 }
