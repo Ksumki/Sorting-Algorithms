@@ -1,0 +1,47 @@
+#include "sorting.h"
+#include "input_gen.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main() {
+    int n_values[] = {256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
+    int num_values = sizeof(n_values) / sizeof(n_values[0]);
+
+    void (*algorithms[])(unsigned int *, int, int *) = {SelectionSortOp, InsertSortOp, MergeSortOp};
+    const char *algorithm_names[] = {"Selection Sort", "Insertion Sort", "Merge Sort"};
+    int num_algorithms = sizeof(algorithms) / sizeof(algorithms[0]);
+
+    const char *input_types[] = {"Ordered", "Reverse Ordered", "Randomized", "Almost Ordered"};
+    unsigned int *(*input_generators[])(int) = {ordered_array, rev_ordered_array, mixed_array, mix4_array};
+    int num_input_types = sizeof(input_generators) / sizeof(input_generators[0]);
+
+    for (int alg_idx = 0; alg_idx < num_algorithms; alg_idx++) {
+        for (int input_idx = 0; input_idx < num_input_types; input_idx++) {
+            printf("Algorithm: %s\n", algorithm_names[alg_idx]);
+            printf("Input: %s Input\n", input_types[input_idx]);
+            printf("Size n Operations op\n");
+            printf("--------------------------\n");
+            for (int n_idx = 0; n_idx < num_values; n_idx++) {
+                int n = n_values[n_idx];
+                int num_runs = (input_idx < 2) ? 1 : 30;
+                int total_op = 0;
+
+                for (int run = 0; run < num_runs; run++) {
+                    unsigned int *arr = input_generators[input_idx](n);
+                    int op = 0;
+                    algorithms[alg_idx](arr, n, &op);
+                    total_op += op;
+                    free(arr);
+                }
+
+                int avg_op = total_op / num_runs;
+                printf("%d %d\n", n, avg_op);
+            }
+            printf("--------------------------------\n");
+        }
+    }
+
+    return 0;
+}
